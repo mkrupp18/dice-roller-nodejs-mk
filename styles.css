@@ -1,0 +1,19 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(to bottom right, #eed0d0, #f78888);
+    /*background-color: rgb(202, 143, 143);*/
+}
+
+
+.big-button {
+    padding: 15px 30px; 
+    font-size: 50px; 
+}
+.bottom-image {
+    position: absolute;
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+}
