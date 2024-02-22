@@ -1,17 +1,17 @@
-const express = require('express');
-const cors = require('cors');
+// index.js
 
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Enable CORS
-app.use(cors());
+// Middleware to parse JSON bodies
+app.use(express.json());
 
-// Define your API endpoints
+// Define the endpoint to roll the dice
 app.get('/roll-dice', (req, res) => {
-    // Logic to roll dice and generate random numbers
-    const diceRoll = Math.floor(Math.random() * 6) + 1;
-    res.json({ result: diceRoll });
+    // Generate a random number between 1 and 6 (inclusive)
+    const result = Math.floor(Math.random() * 6) + 1;
+    res.json({ result });
 });
 
 // Start the server
