@@ -1,16 +1,17 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
-const PORT = 3000; // Choose any port you prefer
+const PORT = process.env.PORT || 3000;
 
-// Set up a route for serving the homepage
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
+// Enable CORS
+app.use(cors());
 
-// Set up a route for rolling the dice
-app.get('/roll', (req, res) => {
-    const result = Math.floor(Math.random() * 6) + 1; // Generate a random number between 1 and 6
-    res.send(`You rolled a ${result}`);
+// Define your API endpoints
+app.get('/roll-dice', (req, res) => {
+    // Logic to roll dice and generate random numbers
+    const diceRoll = Math.floor(Math.random() * 6) + 1;
+    res.json({ result: diceRoll });
 });
 
 // Start the server
